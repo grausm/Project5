@@ -11,12 +11,24 @@ const PROMPT = require('readline-sync');
 let prices = [];
 let passengers, zones;
 
+/**
+ * @method
+ * @desc dispatch method
+ * @returns {null}
+ */
+
 function main() {
     setPrices();
     setPassengers();
     setZones();
     printPrice();
 }
+
+/**
+ * @method
+ * @desc Prices and zones
+ * @returns {null}
+ */
 
 main();
 
@@ -48,6 +60,12 @@ function setPrices() {
     }
 }
 
+/**
+ * @method
+ * @desc Number of passengers
+ * @returns {null}
+ */
+
 function setPassengers() {
     passengers = PROMPT.questionInt(`\n\tHow many passengers? [1-4]: `);
     if (passengers > 4 || passengers < 1) {
@@ -58,6 +76,12 @@ function setPassengers() {
         passengers = passengers - 1; }
 }
 
+/**
+ * @method
+ * @desc Zones crossed
+ * @returns {null}
+ */
+
 function setZones() {
     zones = PROMPT.questionInt(`\n\tHow many zones crossed? [0-3]: `);
     if (zones > 3 || zones < 0) {
@@ -65,6 +89,12 @@ function setZones() {
         return setZones();
     }
 }
+
+/**
+ * @method
+ * @desc Print price
+ * @returns {null}
+ */
 
 function printPrice() {
     console.log(`\n\tTicket price is $${prices[passengers][zones]}.
